@@ -1,3 +1,16 @@
 h1, .container {
   text-align: center;
 }
+
+ul {
+  list-style-type: none;
+  margin: 25px 0px;
+}
+
+.blue {
+  color: green;
+}
+
+.grey {
+  color: grey;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Person from './Person/Person';
+import { sortByNameAsc, sortByNameDesc } from './utils/sort.js';
 
 const App = () => {
   const persons = [
@@ -13,20 +14,39 @@ const App = () => {
 
   const [sortAsc, setSort] = React.useState(true);
   const toggleSort = () => setSort(!sortAsc);
-  const sortByNameAsc = (a, b) => (a.name > b.name) ? 1 : -1;
-  const sortByNameDesc = (a, b) => -(sortByNameAsc(a,b));
   let sorter = sortAsc ? sortByNameAsc : sortByNameDesc;
+
+  const [isGrey, setListItemClass] = React.useState(true);
+  const toggleListItemClass = () => setListItemClass(!isGrey);
+  let listItemClass = isGrey ? "grey" : "blue";
+
+  const buttonStyle = {
+    backgroundColor: 'white',
+    font: 'inherit',
+    border: '1px solid blue',
+    padding: '8px',
+    cursor: 'pointer'
+  }
 
   return (
     <div className="App">
       <h1>Name Sorter</h1>
       <div className="container">
-        <button onClick={toggleSort}>Sort Names</button>
+        <button
+          style={buttonStyle}
+          onClick={toggleSort}
+        >
+          Sort Names
+        </button>
       </div>
       <ul>
         {persons.sort(sorter).map(({ name, sgyAge }) =>
-          <li key={name+sgyAge}>
-            <Person name={name} sgyAge={sgyAge}/>
+          <li key={name+sgyAge} className={listItemClass}>
+            <Person
+              name={name}
+              sgyAge={sgyAge}
+              click={toggleListItemClass}
+            />
           </li>
         )}
       </ul>
