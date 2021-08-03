@@ -30,7 +30,9 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Name Sorter</h1>
+      <header>
+        <h1>Name Sorter</h1>
+      </header>
       <div className="container">
         <button
           style={buttonStyle}
