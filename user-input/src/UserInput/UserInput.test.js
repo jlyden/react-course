@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import UserInput from './UserInput';
 
-test('renders username input', () => {
+test('renders name input', () => {
   render(<UserInput />);
-  expect(screen.getByRole('textbox', { name: /Username/ })).toBeInTheDocument();
+  expect(screen.getByRole('textbox', { name: /Name/ })).toBeInTheDocument();
 });

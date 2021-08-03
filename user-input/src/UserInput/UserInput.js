@@ -4,13 +4,12 @@ class UserInput extends React.Component {
   render() {
     return (
       <div>
-        <label htmlFor='username'>Username:</label>
+        <label htmlFor='name'>Name:</label>
         <input
           type='text'
-          id='username'
-          name='username'
-          placeholder={}
-          onChange={}
+          id='name'
+          value={this.props.name}
+          onChange={this.props.onChange}
         />
       </div>
     )

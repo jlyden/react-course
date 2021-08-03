@@ -1,13 +1,13 @@
 import React from 'react';
 
-class UserExport extends React.Component {
+class UserOutput extends React.Component {
   render() {
-    let username= this.props.username;
+    let name= this.props.name;
 
     return (
       <div>
         <div className='text'>
-          {username && <p>Username: {username}</p>}
+          {name && <p>Name: {name}</p>}
           <p>Paragraph Ennervate inflamarae quietus momentum totalus charm totalus finite. Incantartem immobulus funnunculus mobilicorpus sonorus momentum peskipiksi. Aparecium finite quietus alohomora. Finite expecto tarantallegra wingardium pesternomi bulbadox imperius. Aparecium quietus protego aparecium relashio locomotor patronum patronum.</p>
           <p>Paragraph Aresto mobilicorpus drought portus funnunculus. Mobilicorpus sonorous impedimenta reparo serpensortia. Felix accio portus wingardium mobilicorpus imperio lumos. Dissendium inflamarae leviosa expecto.</p>
         </div>
@@ -20,4 +20,4 @@ class UserExport extends React.Component {
   }  
 }
 
-export default UserExport;
+export default UserOutput;

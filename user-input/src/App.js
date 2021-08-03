@@ -1,15 +1,16 @@
 import React from 'react';
 import './App.css';
-import UserExport from './UserExport/UserExport';
+import UserOutput from './UserOutput/UserOutput';
+import UserInput from './UserInput/UserInput';
 
 class App extends React.Component {
   state = {
-    username: 'boo',
+    name: 'Bob',
   }
 
-  handleChangeUsername(event) {
+  changeNameHandler = (event) => {
     this.setState({
-      username: event.target.value
+      name: event.target.value
     });
   }
 
@@ -19,10 +20,14 @@ class App extends React.Component {
         <header>
           <h1>Ch 3 Assignment</h1> 
         </header>
-        <UserExport
-          username={this.state.username}
+        <UserInput
+          name={this.state.name}
+          onChange={this.changeNameHandler}
         />
-        <UserExport/>
+        <UserOutput
+          name={this.state.name}
+        />
+        <UserOutput/>
       </div>
     );
   }
