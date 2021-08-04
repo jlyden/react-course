@@ -5,7 +5,8 @@
 * One (7/21/2021)
   * /demo code must be cut/pasted into codepen.io to run. See [1.4](https://learning.oreilly.com/videos/react-the-complete/9781789132229/9781789132229-video1_4/)
 * Two (7/22/2021)
-* Three ([WIP](https://learning.oreilly.com/videos/react-the-complete/9781789132229/9781789132229-video3_23/))
+* Three (8/3/2021)
+* Four ([TODO](https://learning.oreilly.com/videos/react-the-complete/9781789132229/9781789132229-video4_1/))
 
 # Helpful commands
 
