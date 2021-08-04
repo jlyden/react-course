@@ -2,9 +2,15 @@ import React from 'react';
 
 class UserInput extends React.Component {
   render() {
+    const style = {
+      margin: '25px',
+      textAlign: 'center',
+      fontSize: '1.2em',
+    };
+
     return (
-      <div>
-        <label htmlFor='name'>Name:</label>
+      <div style={style}>
+        <label htmlFor='name'>Enter Name:</label>
         <input
           type='text'
           id='name'

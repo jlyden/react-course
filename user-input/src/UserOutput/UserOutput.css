@@ -1,0 +1,24 @@
+.user-output {
+  margin: 25px;
+}
+
+.text-holder {
+  overflow: hidden;
+  width: 1000px;
+}
+
+.child {
+  float: left;
+  width: 400px;
+  padding: 0 50px;
+}
+
+.footer {
+  font-style: italic;
+  font-size: .8em;
+}
+
+.name {
+  text-align: left;
+  font-size: 1.2em;
+}

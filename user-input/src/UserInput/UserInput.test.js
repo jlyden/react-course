@@ -3,5 +3,5 @@ import UserInput from './UserInput';
 
 test('renders name input', () => {
   render(<UserInput />);
-  expect(screen.getByRole('textbox', { name: /Name/ })).toBeInTheDocument();
+  expect(screen.getByRole('textbox', { name: /Enter Name/ })).toBeInTheDocument();
 });
