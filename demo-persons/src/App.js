@@ -18,15 +18,21 @@ const App = () => {
 
   const [isGrey, setListItemClass] = React.useState(true);
   const toggleListItemClass = () => setListItemClass(!isGrey);
-  let listItemClass = isGrey ? "grey" : "blue";
+  let listItemClass = isGrey ? "grey" : "green";
+
+  const [visible, setVisibility] = React.useState(true);
+  const toggleVisibility = () => setVisibility(!visible);
 
   const buttonStyle = {
     backgroundColor: 'white',
     font: 'inherit',
     border: '1px solid blue',
     padding: '8px',
+    margin: '10px',
     cursor: 'pointer'
   }
+
+  const buttonVisibilityTitle = visible ? 'Hide Persons' : 'Show Persons';
 
   return (
     <div className="App">
@@ -40,18 +46,26 @@ const App = () => {
         >
           Sort Names
         </button>
+        <button
+          style={buttonStyle}
+          onClick={toggleVisibility}
+        >
+          {buttonVisibilityTitle}
+        </button>
       </div>
-      <ul>
-        {persons.sort(sorter).map(({ name, sgyAge }) =>
-          <li key={name+sgyAge} className={listItemClass}>
-            <Person
-              name={name}
-              sgyAge={sgyAge}
-              click={toggleListItemClass}
-            />
-          </li>
-        )}
-      </ul>
+      {visible &&
+        <ul>
+          {persons.sort(sorter).map(({ name, sgyAge }) =>
+            <li key={name+sgyAge} className={listItemClass}>
+              <Person
+                name={name}
+                sgyAge={sgyAge}
+                click={toggleListItemClass}
+              />
+            </li>
+          )}
+        </ul>
+      }
     </div>
   );
 }
