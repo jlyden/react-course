@@ -4,25 +4,44 @@ import Person from './Person/Person';
 import { sortByNameAsc, sortByNameDesc } from './utils/sort.js';
 
 const App = () => {
-  const persons = [
-    { name: "Eric", sgyAge: 1.5 },
-    { name: "Graham", sgyAge: 8 },
-    { name: "Bernadette", sgyAge: 4 },
-    { name: "Jaskaran", sgyAge: 1 },
-    { name: "Hernan", sgyAge: 0 },
+  const startingPersons = [
+    { id: 10003, name: "Eric", sgyAge: 1.5 },
+    { id: 10001, name: "Graham", sgyAge: 8 },
+    { id: 10002, name: "Bernadette", sgyAge: 4 },
+    { id: 10004, name: "Jaskaran", sgyAge: 1 },
+    { id: 10005, name: "Hernan", sgyAge: 0 },
   ];
 
   const [sortAsc, setSort] = React.useState(true);
   const toggleSort = () => setSort(!sortAsc);
   let sorter = sortAsc ? sortByNameAsc : sortByNameDesc;
 
-  const [isGrey, setListItemClass] = React.useState(true);
-  const toggleListItemClass = () => setListItemClass(!isGrey);
-  let listItemClass = isGrey ? "grey" : "green";
-
   const [visible, setVisibility] = React.useState(true);
   const toggleVisibility = () => setVisibility(!visible);
+  const buttonVisibilityTitle = visible ? 'Hide Persons' : 'Show Persons';
 
+  const [persons, setPersons] = React.useState(startingPersons);
+  const deletePersonHandler = (index) => {
+    const newPersons = [...persons];
+    newPersons.splice(index, 1);
+    setPersons(newPersons);
+  }
+
+  const changeNameHandler = (event, id) => {
+    // Get the person we need to update
+    const index = persons.findIndex(p => p.id === id);
+    const person = { ...persons[index] };
+
+    // Update with event value
+    person.name = event.target.value;
+
+    // Create new state with update
+    const newPersons = [...persons];
+    newPersons[index] = person;
+    setPersons(newPersons);
+  }
+
+  // Only to demonstrate inline style
   const buttonStyle = {
     backgroundColor: 'white',
     font: 'inherit',
@@ -32,7 +51,22 @@ const App = () => {
     cursor: 'pointer'
   }
 
-  const buttonVisibilityTitle = visible ? 'Hide Persons' : 'Show Persons';
+  const renderPersons = () =>  {
+    return (
+      <div className='name-list'>
+        {persons.sort(sorter).map(({ id, name, sgyAge }, index) =>
+          <Person
+            name={name}
+            sgyAge={sgyAge}
+            onClick={() => deletePersonHandler(index)}
+            onChange={(event) => changeNameHandler(event, id)}
+            key={id}
+          />
+        )}
+      </div>
+    )
+
+  }
 
   return (
     <div className="App">
@@ -53,19 +87,7 @@ const App = () => {
           {buttonVisibilityTitle}
         </button>
       </div>
-      {visible &&
-        <ul>
-          {persons.sort(sorter).map(({ name, sgyAge }) =>
-            <li key={name+sgyAge} className={listItemClass}>
-              <Person
-                name={name}
-                sgyAge={sgyAge}
-                click={toggleListItemClass}
-              />
-            </li>
-          )}
-        </ul>
-      }
+      {visible && renderPersons()}
     </div>
   );
 }
