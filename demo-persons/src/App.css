@@ -2,7 +2,7 @@ h1, .container {
   text-align: center;
 }
 
-name-list {
+ul {
   list-style-type: none;
   margin: 25px 0px;
 }

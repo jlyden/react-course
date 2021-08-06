@@ -5,9 +5,9 @@ import { sortByNameAsc, sortByNameDesc } from './utils/sort.js';
 
 const App = () => {
   const startingPersons = [
-    { id: 10003, name: "Eric", sgyAge: 1.5 },
     { id: 10001, name: "Graham", sgyAge: 8 },
     { id: 10002, name: "Bernadette", sgyAge: 4 },
+    { id: 10003, name: "Eric", sgyAge: 1.5 },
     { id: 10004, name: "Jaskaran", sgyAge: 1 },
     { id: 10005, name: "Hernan", sgyAge: 0 },
   ];
@@ -53,17 +53,18 @@ const App = () => {
 
   const renderPersons = () =>  {
     return (
-      <div className='name-list'>
+      <ul className='name-list'>
         {persons.sort(sorter).map(({ id, name, sgyAge }, index) =>
-          <Person
-            name={name}
-            sgyAge={sgyAge}
-            onClick={() => deletePersonHandler(index)}
-            onChange={(event) => changeNameHandler(event, id)}
-            key={id}
-          />
+          <li key={id}>
+            <Person
+              name={name}
+              sgyAge={sgyAge}
+              onClick={() => deletePersonHandler(index)}
+              onChange={(event) => changeNameHandler(event, id)}
+            />
+          </li>
         )}
-      </div>
+      </ul>
     )
 
   }
