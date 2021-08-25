@@ -22,12 +22,11 @@
 }
 
 .instructions-list {
-  text-decoration: line-through;
   font-size: .9em;
 }
 
-.instructions-list-clean {
-  font-size: .9em;
+.crossout {
+  text-decoration: line-through;
 }
 
 .paragraph-input {
